@@ -7,12 +7,11 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.util.StringTokenizer;
 
-public class Main17 {
+public class Main18 {
 	public static void main(String[] args) throws IOException {
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));	//인풋
+		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));	//아웃풋
 		String s = br.readLine();
-		
 		
 		int co = Integer.parseInt(s);	// 스트링을 인트로 변환
 		for(int i=0; i<co; i++) {
@@ -22,6 +21,9 @@ public class Main17 {
 			int B = Integer.parseInt(st.nextToken());
 			
 			int ab =  A+B;	// 스트링을 인트로 변환(계산)
+			bw.write("Case #");
+			bw.write(Integer.toString(i+1));
+			bw.write(": ");
 			bw.write(Integer.toString(ab));	// 버퍼는 스트링으로 받아서 스트링으로 출력 해야한다
 			bw.newLine();	// 개행 줄 추가
 		}
