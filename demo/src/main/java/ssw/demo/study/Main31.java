@@ -5,43 +5,30 @@ import java.io.BufferedWriter;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.util.Arrays;
-import java.util.StringTokenizer;
 
 public class Main31 {
 	 public static void main(String[] args) throws Exception {
 
 	    BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	    BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-	    int co = 0;
 	    
 	    int[] list1 = new int[10];	// list1 배열 할당
 	    
-	    
 	    for(int i=0; i<list1.length; i++) {
-	    	list1[i] = Integer.parseInt(br.readLine()); // 입력받는 배열의 크기
+	    	list1[i] = Integer.parseInt(br.readLine()) % 42;
 	    }
 	    Arrays.sort(list1);	// list1 오림차순
 	    
-	    for(int A=0; A < list1.length; A++) {
-	    	list1[A] = list1[A]%42;
-	    }
-	    Arrays.sort(list1);	// list1 오림차순
+	    // 배열의 중복 제거 (배열을 stream 객체화 후 중복제거)
+	    int result[] = Arrays.stream(list1).distinct().toArray();
 	    
-	    for(int j=0; j<list1.length; j++) {
-	    	if(list1[j]) {
-	    		
-	    	}
-	    }
-	    
-	    bw.write(Integer.toString(co);
-		bw.newLine();
-	    
+	    bw.write(Integer.toString(result.length));	// result배열 크기를 출력
+	    //bw.write(Arrays.toString(result));	// result 리스트를 통으로 출력
 	    bw.flush();
 	    bw.close();
 	    br.close();
 	}
 }
-
 /*
 		//for(int tot : list) {
     	//	ma = Math.max(tot, ma);
@@ -64,11 +51,3 @@ public class Main31 {
 		//StringTokenizer st = new StringTokenizer(input, " ");	// 토큰라이저
 		//Arrays.sort(list1);	// list1 오림차순 
 */
-
-		/*
-		|\_/|
-		|q p|   /}
-		( 0 )"""\
-		|"^"`    |
-		||_/=\\__|
-		*/
