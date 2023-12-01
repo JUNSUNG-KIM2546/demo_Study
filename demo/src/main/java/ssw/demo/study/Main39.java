@@ -5,26 +5,32 @@ import java.io.BufferedWriter;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 
-public class Main38 {
+public class Main39 {
 	 public static void main(String[] args) throws Exception {
+		// 여기서부터 해
 	    BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	    BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 	    
-		int co = Integer.parseInt(br.readLine());
 		String input = br.readLine();
-		String list = input;
-		int sum = 0;	
+		int result = 0;
 		
-		if(list.length() == co) {
-			for(int i=0; i<list.length(); i++) {
-				sum += (list.charAt(i) - '0');
+		for(int i=0; i<input.length(); i++) {
+			for(int j=97; j<=122; j++) {
+				//if(input.charAt(i) == input.charAt(j)) {
+				if(input.indexOf(j,i)) {
+					result = input.indexOf(j);
+					bw.write(Integer.toString(result));
+					bw.write(" ");
+				}
+				else {
+					bw.write(Integer.toString(-1));
+					bw.write(" ");
+				}
 			}
 		}
-			bw.write(Integer.toString(sum));
-	    	
-		    bw.flush();
-		    bw.close();
-		    br.close();
+	    bw.flush();
+	    bw.close();
+	    br.close();
 	}
 }
 /*
