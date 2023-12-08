@@ -4,8 +4,6 @@ import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
-import java.util.Arrays;
-import java.util.Iterator;
 
 public class Main47 {
 	 public static void main(String[] args) throws Exception {
@@ -13,29 +11,29 @@ public class Main47 {
 	    BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 		
 	    String[][] listResult;
-	    int result = 0;
-	    int co = 0;
+	    String result = "";
 	    
 	    // 배열 크기 설정
 	    listResult = new String[5][15];
 	    
 	    // listResult리스트에 입력 값 넣기
 		for(int i=0; i<listResult.length;i++) {
-			String input[] = br.readLine().split(" ");
-			listResult[i] = new String[input.length];
+			String input[] = br.readLine().split("");
 			for(int j=0; j<listResult[i].length; j++) {
-				listResult[i][j] = input[j];
+				if(j < input.length)
+					listResult[i][j] = input[j];
+				else
+					listResult[i][j] = " ";
 			}
-			co = Math.max(co, listResult[i].length);
 		}
 		
 		// 값 할당
-		for(int i=0; i<co; i++) {
-			for(int j=0; j<co; j++) {
-				bw.write(listResult[i][j]); // 리스트 할당
+		for(int i=0; i<15; i++) {
+			for(int j=0; j<5; j++) {
+				result += listResult[j][i].replaceAll(" ", "");
 			}
 		}
-		
+		bw.write(result);
 		
 		// 답 출력
 		bw.flush(); //출력
