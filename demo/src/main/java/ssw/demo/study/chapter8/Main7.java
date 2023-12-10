@@ -5,35 +5,36 @@ import java.io.BufferedWriter;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 
-public class Main3 {
+public class Main7 {
 	 public static void main(String[] args) throws Exception {
 	    BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	    BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 		
-	    String[][] listResult;
-	    String result = "";
+	    String input[] = br.readLine().split(" ");
 	    
-	    // 배열 크기 설정
-	    listResult = new String[5][15];
+	    int A = Integer.parseInt(input[0]);	// 낮
+	    int B = Integer.parseInt(input[1]);	// 밤
+	    int V = Integer.parseInt(input[2]);	// 높이
+	    int co = 0;	// 달팽이
+	    int count = 0;	// 몇일
 	    
-	    // listResult리스트에 입력 값 넣기
-		for(int i=0; i<listResult.length;i++) {
-			String input[] = br.readLine().split("");
-			for(int j=0; j<listResult[i].length; j++) {
-				if(j < input.length)
-					listResult[i][j] = input[j];
-				else
-					listResult[i][j] = " ";
-			}
+	    while (true) {
+	    	// 달팽이가 co만큼 갔다
+	    	if(co <= V) {
+	    		count++;
+	    		co += A;
+	    	}
+	    	
+	    	// 달팽이 정상에 도착하면 브레이크
+	    	if(V <= co) {
+	    		break;
+	    	}
+	    	
+	    	// 달팽이 잔다(미끄러짐)
+	    	co -= B;
 		}
-		
-		// 값 할당
-		for(int i=0; i<15; i++) {
-			for(int j=0; j<5; j++) {
-				result += listResult[j][i].replaceAll(" ", "");
-			}
-		}
-		bw.write(result);
+	    
+		bw.write(Integer.toString(count));
 		
 		// 답 출력
 		bw.flush(); //출력
